@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Cafe E-Commerce</title>
+    <title>☕Cafe Brew</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -14,71 +14,71 @@
 
 <body>
 
-    <!-- 🔥 NAVBAR -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-        <a class="navbar-brand fw-bold" href="#">☕ Cafe Brew</a>
+        <a class="navbar-brand fw-bold" href="#">☕Cafe Brew</a>
 
         <div class="ms-auto">
-            <input class="form-control" placeholder="Search coffee, snacks..." />
+            <button onclick="toggleMode()" id="modeBtn" class="mode-toggle"> 
+                🌙
+            </button>
         </div>
     </nav>
 
-    <!-- 🔥 CAROUSEL -->
+
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
 
         <div class="carousel-inner">
 
             <div class="carousel-item active">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" class="d-block w-100 hero-img">
+                <img src="https://www.shutterstock.com/image-photo/closeup-image-man-woman-clinking-600nw-1937522521.jpg" class="d-block w-100 hero-img">
             </div>
 
             <div class="carousel-item">
-                <img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6" class="d-block w-100 hero-img">
+                <img src="https://media.istockphoto.com/id/1829241109/photo/enjoying-a-brunch-together.webp?b=1&s=612x612&w=0&k=20&c=Mn_EPBAGwtzh5K6VyfDmd7Q5eJFXSHhGWVr3T4WDQRo=" class="d-block w-100 hero-img">
             </div>
 
         </div>
 
     </div>
 
-    <!-- 🔥 MAIN LAYOUT -->
     <div class="container-fluid mt-3">
         <div class="row">
 
-            <!-- SIDEBAR -->
-            <div class="col-md-3 sidebar">
+            <div class="sidebar">
 
-                <h5 class="p-3">Categories</h5>
+                <h3>Categories</h3>
 
-                <ul class="list-unstyled">
+                <p onclick="showAll()">🏠 All Items</p>
 
-                    <li onclick="showAll()">🏠 All Items</li>
+                <!-- COFFEE -->
+                <p onclick="toggle('coffeeMenu')">☕ Coffee ▼</p>
+                <div id="coffeeMenu" style="display: block; margin-left: 20px;">
+                    <p onclick="filter('espresso')"> Espresso</p>
+                    <p onclick="filter('latte')"> Latte</p>
+                    <p onclick="filter('frappe')"> Frappe</p>
+                </div>
 
-                    <!-- Coffee -->
-                    <li onclick="toggle('coffeeMenu')">☕ Coffee ▼</li>
-                    <ul id="coffeeMenu" class="submenu">
-                        <li onclick="filter('espresso')">Espresso</li>
-                        <li onclick="filter('latte')">Latte</li>
-                    </ul>
-
-                    <!-- Snacks -->
-                    <li onclick="toggle('snackMenu')">🍔 Snacks ▼</li>
-                    <ul id="snackMenu" class="submenu">
-                        <li onclick="filter('burger')">Burger</li>
-                        <li onclick="filter('sandwich')">Sandwich</li>
-                    </ul>
-
-                    <!-- Desserts -->
-                    <li onclick="toggle('dessertMenu')">🍰 Desserts ▼</li>
-                    <ul id="dessertMenu" class="submenu">
-                        <li onclick="filter('cake')">Cake</li>
-                        <li onclick="filter('donut')">Donut</li>
-                    </ul>
-
-                </ul>
+                <!-- SNACKS -->
+                <p onclick="toggle('snacksMenu')">🍔 Snacks ▼</p>
+                <div id="snacksMenu" style="display: block; margin-left: 20px;">
+                    <p onclick="filter('burger')"> Burger</p>
+                    <p onclick="filter('sandwich')">Sandwich</p>
+                    <p onclick="filter('frenchfries')"> French Fries</p>
+                    <p onclick="filter('fish')">Fish</p>
+                    <p onclick="filter('wings')">Wings</p>
+                    <p onclick="filter('hummus')">Hummus</p>
+                </div>
+                <!-- desserts -->
+                <p onclick="toggle('dessertsMenu')">🍰 Desserts ▼</p>
+                <div id="dessertsMenu" style="display: block; margin-left: 20px;">
+                    <p onclick="filter('brownie')">Brownie</p>
+                    <p onclick="filter('cupcake')">Cupcake</p>
+                    <p onclick="filter('pancakes')"> Pancakes</p>
+                    <p onclick="filter('waffles')">Waffles</p>
+                </div>
 
             </div>
-
-            <!-- PRODUCTS -->
             <div class="col-md-9">
                 <div class="row p-3" id="productContainer"></div>
             </div>
@@ -86,7 +86,6 @@
         </div>
     </div>
 
-    <!-- 🔥 FOOTER -->
     <footer class="bg-dark text-white text-center p-3 mt-4">
         <p>☕ Cafe Brew © 2026 | All Rights Reserved</p>
     </footer>
